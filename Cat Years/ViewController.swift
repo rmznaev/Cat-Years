@@ -14,8 +14,15 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var resultLabel: UILabel!
     
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        
+    }
     
     @IBAction func getAge(_ sender: UIButton) {
+        
+        ageTextField.resignFirstResponder()
         
         if let age = ageTextField.text {
             
@@ -43,9 +50,17 @@ class ViewController: UIViewController {
         
     }
     
-    override func viewDidLoad() {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        super.viewDidLoad()
+        self.view.endEditing(true)
+        
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        textField.resignFirstResponder()
+        
+        return true
         
     }
     
